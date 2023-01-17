@@ -6,6 +6,7 @@ runs:
       - shell: bash
         run: |
           check () {
+            echo $1
             result=`cat $1 | grep Analyzer`
             if [ ${#result} -ne 0 ]; then
               echo -e "\e[31m Error: '$1' includes the reference to Analyzer\e[m"
