@@ -6,7 +6,7 @@ runs:
       - shell: bash
         run: |
           check () {
-            if [ `cat $1` == *Analyzer* ]; then
+            if [[ `cat $1` == *Analyzer* ]]; then
               echo -e "\e[31m Error: '$1' includes the reference to Analyzer\e[m"
               exit 1
             fi
