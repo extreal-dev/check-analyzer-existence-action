@@ -3,7 +3,6 @@ description: Verifies that the Assembly Definition file does not have the refere
 runs: 
   using: composite
   steps:
-      - uses: actions/checkout@v3
       - shell: bash
         run: |
           check () {
