@@ -5,13 +5,18 @@ runs:
   steps:
       - shell: bash
         run: |
+          failed=false
           check () {
             if [[ `cat $1` == *Analyzer* ]]; then
               echo -e "\e[31m Error: '$1' includes the reference to Analyzer\e[m"
-              exit 1
+              failed=true
             fi
           }
           for file in `find . -name *.asmdef`
           do
             check $file
           done
+          if $failed
+          then
+            exit 1
+          fi
